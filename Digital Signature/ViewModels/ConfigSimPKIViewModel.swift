@@ -33,7 +33,10 @@ final class ConfigSimPKIViewModel: ObservableObject {
                 self?.isLoading = false
             } receiveValue: { [weak self] model in
                 self?.isLoading = false
-                print(model)
+                guard let cer = model.value.transaction?.certificate else {
+                    return
+                }
+                try? digitalSignConfig.setEncodableValue(.init(value: cer, name: selectedService.name, id: "\(selectedService.id)"), for: \.SimPkiConfig)
             }
             .store(in: &cancellableSet)
     }

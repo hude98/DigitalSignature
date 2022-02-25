@@ -32,6 +32,9 @@
 		42A4188B27BD376E00637C8C /* PDFSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4188A27BD376E00637C8C /* PDFSelectionViewController.swift */; };
 		42A4188D27BD4A1800637C8C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4188C27BD4A1800637C8C /* SettingViewController.swift */; };
 		42A4189027BD4B7E00637C8C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 42A4188F27BD4B7E00637C8C /* Moya */; };
+		42C7B04527C91F6A00773D7D /* PreferencesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42C7B04427C91F6A00773D7D /* PreferencesKit */; };
+		42C7B04827C91F7900773D7D /* DigitalSignConfigValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7B04727C91F7900773D7D /* DigitalSignConfigValue.swift */; };
+		42C7B04B27C91FCA00773D7D /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7B04A27C91FCA00773D7D /* EnvironmentValues.swift */; };
 		42E5E6F727BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5E6F627BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift */; };
 		42E5E6F927BEA1CE00FD52E3 /* ConfigTSAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5E6F827BEA1CE00FD52E3 /* ConfigTSAViewController.swift */; };
 		B23D3E8827C63A0900D92E6D /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D3E8727C63A0900D92E6D /* TextFieldExtension.swift */; };
@@ -102,6 +105,9 @@
 		4293B7BB27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSimPKIViewController.swift; sourceTree = "<group>"; };
 		42A4188A27BD376E00637C8C /* PDFSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFSelectionViewController.swift; sourceTree = "<group>"; };
 		42A4188C27BD4A1800637C8C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		42C7B04327C91F5F00773D7D /* PreferencesKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PreferencesKit; path = ../../Desktop/PreferencesKit; sourceTree = "<group>"; };
+		42C7B04727C91F7900773D7D /* DigitalSignConfigValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalSignConfigValue.swift; sourceTree = "<group>"; };
+		42C7B04A27C91FCA00773D7D /* EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
 		42E5E6F627BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDigitalSignatureRemoteViewController.swift; sourceTree = "<group>"; };
 		42E5E6F827BEA1CE00FD52E3 /* ConfigTSAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTSAViewController.swift; sourceTree = "<group>"; };
 		B23D3E8727C63A0900D92E6D /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 				4227218627BBF37A008EF018 /* SnapKit in Frameworks */,
 				4276551527BFFB39001D37A1 /* CombineMoya in Frameworks */,
 				4276551327BFF8E9001D37A1 /* RxMoya in Frameworks */,
+				42C7B04527C91F6A00773D7D /* PreferencesKit in Frameworks */,
 				428DD6AC27C0F7A4008A70A1 /* JGProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +221,7 @@
 		4277F7EE27BBEF72003DD1DD = {
 			isa = PBXGroup;
 			children = (
+				42C7B04227C91F5F00773D7D /* Packages */,
 				4277F7F927BBEF72003DD1DD /* Digital Signature */,
 				4277F81027BBEF73003DD1DD /* Digital SignatureTests */,
 				4277F81A27BBEF73003DD1DD /* Digital SignatureUITests */,
@@ -235,6 +243,8 @@
 		4277F7F927BBEF72003DD1DD /* Digital Signature */ = {
 			isa = PBXGroup;
 			children = (
+				42C7B04927C91FB800773D7D /* Supporting FIles */,
+				42C7B04627C91F6F00773D7D /* Storage */,
 				4276552027C0A11D001D37A1 /* Extentions */,
 				4276550927BFF2D2001D37A1 /* Network */,
 				4276550E27BFF7F8001D37A1 /* ViewModels */,
@@ -263,6 +273,30 @@
 				4277F81D27BBEF73003DD1DD /* Digital_SignatureUITestsLaunchTests.swift */,
 			);
 			path = "Digital SignatureUITests";
+			sourceTree = "<group>";
+		};
+		42C7B04227C91F5F00773D7D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				42C7B04327C91F5F00773D7D /* PreferencesKit */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		42C7B04627C91F6F00773D7D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				42C7B04727C91F7900773D7D /* DigitalSignConfigValue.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		42C7B04927C91FB800773D7D /* Supporting FIles */ = {
+			isa = PBXGroup;
+			children = (
+				42C7B04A27C91FCA00773D7D /* EnvironmentValues.swift */,
+			);
+			path = "Supporting FIles";
 			sourceTree = "<group>";
 		};
 		B23D3E8927C6563F00D92E6D /* Remote Signing Config */ = {
@@ -341,6 +375,7 @@
 				4276551227BFF8E9001D37A1 /* RxMoya */,
 				4276551427BFFB39001D37A1 /* CombineMoya */,
 				428DD6AB27C0F7A4008A70A1 /* JGProgressHUD */,
+				42C7B04427C91F6A00773D7D /* PreferencesKit */,
 			);
 			productName = "Digital Signature";
 			productReference = 4277F7F727BBEF72003DD1DD /* Digital Signature.app */;
@@ -466,6 +501,7 @@
 				42A4188B27BD376E00637C8C /* PDFSelectionViewController.swift in Sources */,
 				4276550D27BFF552001D37A1 /* NetworkManager.swift in Sources */,
 				4276551027BFF805001D37A1 /* ConfigSimPKIViewModel.swift in Sources */,
+				42C7B04827C91F7900773D7D /* DigitalSignConfigValue.swift in Sources */,
 				4277F7FF27BBEF72003DD1DD /* HomeViewController.swift in Sources */,
 				B2EAE63927C7CDE8007DD9A2 /* ConfigSigningViewModel.swift in Sources */,
 				B23D3E8827C63A0900D92E6D /* TextFieldExtension.swift in Sources */,
@@ -485,6 +521,7 @@
 				4276551827C08F3F001D37A1 /* SimPKIModel.swift in Sources */,
 				B2EAE63C27C91AD4007DD9A2 /* SigningModel.swift in Sources */,
 				4277F7FD27BBEF72003DD1DD /* SceneDelegate.swift in Sources */,
+				42C7B04B27C91FCA00773D7D /* EnvironmentValues.swift in Sources */,
 				B2EAE63F27C91D4C007DD9A2 /* DigitalCertModel.swift in Sources */,
 				4276551D27C0944C001D37A1 /* SelectionProviderViewController.swift in Sources */,
 				4276552227C0A134001D37A1 /* Binding+Extension.swift in Sources */,
@@ -905,6 +942,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42A4188E27BD4B7E00637C8C /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		42C7B04427C91F6A00773D7D /* PreferencesKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PreferencesKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
