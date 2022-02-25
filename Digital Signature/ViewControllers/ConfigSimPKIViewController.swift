@@ -7,12 +7,32 @@
 
 import UIKit
 import SwiftUI
+import Combine
+import JGProgressHUD
 
 class ConfigSimPKIViewController: UIViewController {
-    private lazy var contentViewController: UIHostingController<ContentView> = .init(rootView: ContentView())
-
-    init() {
+    private lazy var contentViewController: UIHostingController<ContentView> = .init(rootView: ContentView(viewModel: viewModel))
+    var viewModel: ConfigSimPKIViewModel!
+    private var cancellabletSet: Set<AnyCancellable> = []
+    init(networkProvider: NetworkManager) {
         super.init(nibName: nil, bundle: nil)
+        self.viewModel = ConfigSimPKIViewModel(network: networkProvider)
+        Publishers
+            .CombineLatest(viewModel.selectionProviderAction, viewModel.$models)
+            .map({$1})
+            .sink { [weak self] models in
+                self?.openSelectionProviders(models: models)
+            }
+            .store(in: &cancellabletSet)
+    }
+    
+    private func openSelectionProviders(models: [ServiceProviderModel]) {
+        let vc = SelectionProviderViewController(viewModel: .init(items: models))
+        vc.delegate = self
+        vc.modalTransitionStyle   = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.view.tintColor = .clear
+        self.present(vc, animated: true, completion: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -27,35 +47,60 @@ class ConfigSimPKIViewController: UIViewController {
         view.addSubview(contentViewController.view)
         contentViewController.view.backgroundColor = .white
         contentViewController.didMove(toParent: self)
-        // Do any additional setup after loading the view.
+        let hud = JGProgressHUD()
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        hud.dismiss(afterDelay: 3.0)
+        viewModel
+            .$isLoading
+            .sink { [weak self] isLoading in
+                guard let strongSelf = self else {
+                    return
+                }
+                if isLoading {
+                    hud.show(in: strongSelf.view)
+                } else {
+                    hud.dismiss()
+                }
+            }
+            .store(in: &cancellabletSet)
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         contentViewController.view.frame = view.bounds
     }
+}
 
+
+extension ConfigSimPKIViewController: SelectionProviderViewControllerDelegate {
+    func selectionProviderViewController(_ controller: SelectionProviderViewController, didSelected item: ServiceProviderModel) {
+        viewModel.selectedService = item
+    }
 }
 
 extension ConfigSimPKIViewController {
     struct ContentView: View {
-        @State var phoneNumber: String = ""
+        @ObservedObject var viewModel: ConfigSimPKIViewModel
+        
         var body: some View {
             VStack(spacing: 0) {
                 Text("Vui lòng nhập đầy đủ thông tin cấu hình")
                     .font(.body.bold())
                 Button {
-                    
+                    viewModel.selectionProviderAction.send()
                 } label: {
-                    SelectionView(content: nil, title: "Chọn nhà cung cấp")
+                    SelectionView(model: $viewModel.selectedService, title: "Chọn nhà cung cấp")
                 }
                 
                 .padding(.all, 16)
                 
-                InputView(content: $phoneNumber, title: "Số điện thoại", keyboardType: .phonePad)
+                InputView(content: $viewModel.phoneNumber ?? "", title: "Số điện thoại", keyboardType: .phonePad)
                     .padding(.all, 16)
-                Spacer()
-                    .frame(alignment: .center)
+                ScrollView {
+                    CertificateInfoView(contents: [], statusMessage: "")
+                }
+                .frame(minHeight: 350)
                 GeometryReader { geometry in
                     HStack(alignment: .center, spacing: 0) {
                         Spacer()
@@ -64,12 +109,11 @@ extension ConfigSimPKIViewController {
                         }
                         Spacer()
                         ButtonView(icon: .init(systemName: "Back"), title: "Lưu", widthBtn: 125) {
-                            print("Lưu")
+                            viewModel.saveConfigSimPKI()
                         }
                         Spacer()
                     }
                 }
-            
                 Spacer()
             }
             .padding()
@@ -78,22 +122,18 @@ extension ConfigSimPKIViewController {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConfigSimPKIViewController.ContentView()
-    }
-}
+
 
 struct SelectionView: View {
-    @State var content: String?
+    @Binding var model: ServiceProviderModel?
     var title: String
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Text(content ?? title)
+                Text(model?.name ?? title)
                     .bold()
-                    .foregroundColor(content?.isEmpty ?? true ? nil : .red)
+                    .foregroundColor(model == nil ? nil : .red)
                 Spacer()
             }
         }
@@ -106,10 +146,11 @@ struct SelectionView: View {
 }
 
 struct InputView: View {
+    @FocusState var isInputActive: Bool
     @Binding var content: String
     var title: String
     let keyboardType: UIKeyboardType
-
+    
     var body: some View {
         VStack {
             ZStack(alignment: .leading) {
@@ -121,8 +162,21 @@ struct InputView: View {
                         Spacer()
                     }
                 }
+                
+                //                HungDzTextField(text: $content, keyType: keyboardType)
+                //                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 20)
+                
                 TextField("", text: $content)
                     .keyboardType(keyboardType)
+                    .focused($isInputActive)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Spacer()
+                            Button("Done") {
+                                isInputActive = false
+                            }
+                        }
+                    }
             }
         }
         .padding(.horizontal)
@@ -175,9 +229,33 @@ struct ButtonView: View {
             .background(Color.blue)
             .cornerRadius(cornerRadius)
         }
-
-     
     }
-    
-    
+}
+
+
+struct CertificateInfoView: View {
+    let contents: [String]
+    let statusMessage: String
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            ForEach(contents,id: \.self) { message in
+                Text(message)
+                    .foregroundColor(.gray)
+                
+            }
+            Text(statusMessage)
+                .bold()
+                .foregroundColor(.red)
+        }
+    }
+}
+
+struct CertificateInfoView_Previews: PreviewProvider {
+    static var previews: some View {
+        CertificateInfoView(contents: [
+            "Chủ sở hữu: HUNG SIM 2",
+            "Đơn vị cấp phát: Newtel Certification Authority",
+            "Thời gian hiệu lực: 1/14/2022 đến 1/14/2023"
+        ], statusMessage: "Tình trạng: Chứng chỉ Root CA không hợp lệ")
+    }
 }

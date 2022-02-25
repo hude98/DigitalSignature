@@ -62,6 +62,13 @@ struct NetworkManager: Networkable {
             .eraseToAnyPublisher()
     }
     
+    func getListServiceProviderTSA() -> AnyPublisher<[TSAModel], MoyaError>{
+        return provider
+            .requestPublisher(.getListServiceProviderTSA)
+            .map(ServiceProviderTSA.self)
+            .map({$0.data})
+            .eraseToAnyPublisher()
+    }
     
     
 }

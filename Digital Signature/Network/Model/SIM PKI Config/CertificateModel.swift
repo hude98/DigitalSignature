@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct CertificateModel: Decodable {
     var value: String
     var isSuccess: Bool

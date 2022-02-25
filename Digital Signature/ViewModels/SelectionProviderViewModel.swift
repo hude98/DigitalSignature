@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import Combine
+
+class SelectionProviderViewModel: ObservableObject {
+    let items: [ServiceProviderModel]
+    @Published var selectedItem: ServiceProviderModel?
+    init(items: [ServiceProviderModel]) {
+        self.items = items
+    }
+}

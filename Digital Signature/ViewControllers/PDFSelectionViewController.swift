@@ -12,7 +12,7 @@ import PDFKit
 class PDFSelectionViewController: UIViewController, PDFViewDelegate {
     let urlFile: URL
     var pdfView: PDFView!
-
+    
     init(with url: URL) {
         self.urlFile = url
         super.init(nibName: nil, bundle: nil)
@@ -28,14 +28,13 @@ class PDFSelectionViewController: UIViewController, PDFViewDelegate {
         pdfView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(pdfView)
         pdfView.autoScales = true
-        
         pdfView.document = PDFDocument(url: urlFile)
         pdfView.delegate = self
         pdfView.isUserInteractionEnabled = false
     }
     
     var startPoint: CGPoint?
-
+    
     let rectShapeLayer: CAShapeLayer = {
         let shapeLayer = CAShapeLayer()
         shapeLayer.strokeColor = UIColor.black.cgColor
@@ -43,7 +42,7 @@ class PDFSelectionViewController: UIViewController, PDFViewDelegate {
         shapeLayer.lineWidth = 1
         return shapeLayer
     }()
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         startPoint = nil
         rectShapeLayer.removeFromSuperlayer()
@@ -77,10 +76,10 @@ class PDFSelectionViewController: UIViewController, PDFViewDelegate {
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first, let startPoint = startPoint else { return }
-
-        let currentPoint = touch.location(in: pdfView)
-        let frame = rect(from: startPoint, to: currentPoint)
+//        guard let touch = touches.first, let startPoint = startPoint else { return }
+//
+//        let currentPoint = touch.location(in: pdfView)
+//        let frame = rect(from: startPoint, to: currentPoint)
 
         // you might do something with `frame`, e.g. remove bounding box but take snapshot of selected `CGRect`
 

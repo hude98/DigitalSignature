@@ -19,8 +19,3 @@ struct SimPKIModel: ServiceProviderModel {
 struct ServiceProviderSimPKI: Codable {
     let data: [SimPKIModel]
 }
-
-protocol ServiceProviderModel: Codable {
-    var id: Int { get }
-    var name: String { get }
-}

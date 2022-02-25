@@ -7,15 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4227218627BBF37A008EF018 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4227218527BBF37A008EF018 /* SnapKit */; };
+		4276550B27BFF2F3001D37A1 /* CAAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4276550A27BFF2F3001D37A1 /* CAAPI.swift */; };
+		4276550D27BFF552001D37A1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4276550C27BFF552001D37A1 /* NetworkManager.swift */; };
+		4276551027BFF805001D37A1 /* ConfigSimPKIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4276550F27BFF805001D37A1 /* ConfigSimPKIViewModel.swift */; };
+		4276551327BFF8E9001D37A1 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 4276551227BFF8E9001D37A1 /* RxMoya */; };
+		4276551527BFFB39001D37A1 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 4276551427BFFB39001D37A1 /* CombineMoya */; };
+		4276551827C08F3F001D37A1 /* SimPKIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4276551727C08F3F001D37A1 /* SimPKIModel.swift */; };
+		4276551D27C0944C001D37A1 /* SelectionProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4276551C27C0944C001D37A1 /* SelectionProviderViewController.swift */; };
+		4276552227C0A134001D37A1 /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4276552127C0A134001D37A1 /* Binding+Extension.swift */; };
 		4277F7FB27BBEF72003DD1DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277F7FA27BBEF72003DD1DD /* AppDelegate.swift */; };
 		4277F7FD27BBEF72003DD1DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277F7FC27BBEF72003DD1DD /* SceneDelegate.swift */; };
-		4277F7FF27BBEF72003DD1DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277F7FE27BBEF72003DD1DD /* ViewController.swift */; };
-		4277F80227BBEF72003DD1DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4277F80027BBEF72003DD1DD /* Main.storyboard */; };
+		4277F7FF27BBEF72003DD1DD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277F7FE27BBEF72003DD1DD /* HomeViewController.swift */; };
 		4277F80427BBEF73003DD1DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4277F80327BBEF73003DD1DD /* Assets.xcassets */; };
 		4277F80727BBEF73003DD1DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4277F80527BBEF73003DD1DD /* LaunchScreen.storyboard */; };
 		4277F81227BBEF73003DD1DD /* Digital_SignatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277F81127BBEF73003DD1DD /* Digital_SignatureTests.swift */; };
 		4277F81C27BBEF73003DD1DD /* Digital_SignatureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277F81B27BBEF73003DD1DD /* Digital_SignatureUITests.swift */; };
 		4277F81E27BBEF73003DD1DD /* Digital_SignatureUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277F81D27BBEF73003DD1DD /* Digital_SignatureUITestsLaunchTests.swift */; };
+		428DD69727C0DDE0008A70A1 /* SelectionProviderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DD69627C0DDE0008A70A1 /* SelectionProviderViewModel.swift */; };
+		428DD6AC27C0F7A4008A70A1 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 428DD6AB27C0F7A4008A70A1 /* JGProgressHUD */; };
+		428DD6AE27C0FAED008A70A1 /* CertificateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DD6AD27C0FAED008A70A1 /* CertificateModel.swift */; };
+		428DD6B027C1F86B008A70A1 /* VerifyDigitalCertificateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DD6AF27C1F86B008A70A1 /* VerifyDigitalCertificateModel.swift */; };
+		4293B7BC27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293B7BB27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift */; };
+		42A4188B27BD376E00637C8C /* PDFSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4188A27BD376E00637C8C /* PDFSelectionViewController.swift */; };
+		42A4188D27BD4A1800637C8C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4188C27BD4A1800637C8C /* SettingViewController.swift */; };
+		42A4189027BD4B7E00637C8C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 42A4188F27BD4B7E00637C8C /* Moya */; };
+		42E5E6F727BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5E6F627BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift */; };
+		42E5E6F927BEA1CE00FD52E3 /* ConfigTSAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5E6F827BEA1CE00FD52E3 /* ConfigTSAViewController.swift */; };
+		B23D3E8827C63A0900D92E6D /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D3E8727C63A0900D92E6D /* TextFieldExtension.swift */; };
+		B23D3E8C27C659D100D92E6D /* VerifyDiCerRemoteSigningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D3E8B27C659D100D92E6D /* VerifyDiCerRemoteSigningModel.swift */; };
+		B23D3E8F27C6627400D92E6D /* TSAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D3E8E27C6627400D92E6D /* TSAModel.swift */; };
+		B23D3E9127C662C800D92E6D /* ServiceProviderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D3E9027C662C800D92E6D /* ServiceProviderModel.swift */; };
+		B23D3E9427C6638B00D92E6D /* ConfigTSAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23D3E9327C6638B00D92E6D /* ConfigTSAViewModel.swift */; };
+		B280606F27C6277600932627 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280606E27C6277500932627 /* DeviceInfo.swift */; };
+		B280607127C62A5600932627 /* ConfigRemoteSigningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280607027C62A5600932627 /* ConfigRemoteSigningViewModel.swift */; };
+		B280607327C62F4500932627 /* RemoteSigningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280607227C62F4500932627 /* RemoteSigningModel.swift */; };
+		B2EAE63927C7CDE8007DD9A2 /* ConfigSigningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE63827C7CDE8007DD9A2 /* ConfigSigningViewModel.swift */; };
+		B2EAE63C27C91AD4007DD9A2 /* SigningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE63B27C91AD4007DD9A2 /* SigningModel.swift */; };
+		B2EAE63F27C91D4C007DD9A2 /* DigitalCertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE63E27C91D4C007DD9A2 /* DigitalCertModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +64,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		428DD6A427C0F49A008A70A1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4276550A27BFF2F3001D37A1 /* CAAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAAPI.swift; sourceTree = "<group>"; };
+		4276550C27BFF552001D37A1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4276550F27BFF805001D37A1 /* ConfigSimPKIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSimPKIViewModel.swift; sourceTree = "<group>"; };
+		4276551727C08F3F001D37A1 /* SimPKIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimPKIModel.swift; sourceTree = "<group>"; };
+		4276551C27C0944C001D37A1 /* SelectionProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionProviderViewController.swift; sourceTree = "<group>"; };
+		4276552127C0A134001D37A1 /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 		4277F7F727BBEF72003DD1DD /* Digital Signature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Digital Signature.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4277F7FA27BBEF72003DD1DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4277F7FC27BBEF72003DD1DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4277F7FE27BBEF72003DD1DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4277F80127BBEF72003DD1DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4277F7FE27BBEF72003DD1DD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4277F80327BBEF73003DD1DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4277F80627BBEF73003DD1DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4277F80827BBEF73003DD1DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +96,25 @@
 		4277F81727BBEF73003DD1DD /* Digital SignatureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Digital SignatureUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4277F81B27BBEF73003DD1DD /* Digital_SignatureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digital_SignatureUITests.swift; sourceTree = "<group>"; };
 		4277F81D27BBEF73003DD1DD /* Digital_SignatureUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digital_SignatureUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		428DD69627C0DDE0008A70A1 /* SelectionProviderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionProviderViewModel.swift; sourceTree = "<group>"; };
+		428DD6AD27C0FAED008A70A1 /* CertificateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateModel.swift; sourceTree = "<group>"; };
+		428DD6AF27C1F86B008A70A1 /* VerifyDigitalCertificateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyDigitalCertificateModel.swift; sourceTree = "<group>"; };
+		4293B7BB27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSimPKIViewController.swift; sourceTree = "<group>"; };
+		42A4188A27BD376E00637C8C /* PDFSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFSelectionViewController.swift; sourceTree = "<group>"; };
+		42A4188C27BD4A1800637C8C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		42E5E6F627BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDigitalSignatureRemoteViewController.swift; sourceTree = "<group>"; };
+		42E5E6F827BEA1CE00FD52E3 /* ConfigTSAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTSAViewController.swift; sourceTree = "<group>"; };
+		B23D3E8727C63A0900D92E6D /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
+		B23D3E8B27C659D100D92E6D /* VerifyDiCerRemoteSigningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyDiCerRemoteSigningModel.swift; sourceTree = "<group>"; };
+		B23D3E8E27C6627400D92E6D /* TSAModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSAModel.swift; sourceTree = "<group>"; };
+		B23D3E9027C662C800D92E6D /* ServiceProviderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviderModel.swift; sourceTree = "<group>"; };
+		B23D3E9327C6638B00D92E6D /* ConfigTSAViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTSAViewModel.swift; sourceTree = "<group>"; };
+		B280606E27C6277500932627 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		B280607027C62A5600932627 /* ConfigRemoteSigningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRemoteSigningViewModel.swift; sourceTree = "<group>"; };
+		B280607227C62F4500932627 /* RemoteSigningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSigningModel.swift; sourceTree = "<group>"; };
+		B2EAE63827C7CDE8007DD9A2 /* ConfigSigningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSigningViewModel.swift; sourceTree = "<group>"; };
+		B2EAE63B27C91AD4007DD9A2 /* SigningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningModel.swift; sourceTree = "<group>"; };
+		B2EAE63E27C91D4C007DD9A2 /* DigitalCertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +122,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A4189027BD4B7E00637C8C /* Moya in Frameworks */,
+				4227218627BBF37A008EF018 /* SnapKit in Frameworks */,
+				4276551527BFFB39001D37A1 /* CombineMoya in Frameworks */,
+				4276551327BFF8E9001D37A1 /* RxMoya in Frameworks */,
+				428DD6AC27C0F7A4008A70A1 /* JGProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +147,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4276550827BFF2BD001D37A1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4277F7FE27BBEF72003DD1DD /* HomeViewController.swift */,
+				42A4188C27BD4A1800637C8C /* SettingViewController.swift */,
+				4293B7BB27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift */,
+				4276551C27C0944C001D37A1 /* SelectionProviderViewController.swift */,
+				42E5E6F627BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift */,
+				42E5E6F827BEA1CE00FD52E3 /* ConfigTSAViewController.swift */,
+				42A4188A27BD376E00637C8C /* PDFSelectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4276550927BFF2D2001D37A1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4276551627C08F26001D37A1 /* Model */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4276550E27BFF7F8001D37A1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4276550F27BFF805001D37A1 /* ConfigSimPKIViewModel.swift */,
+				B280607027C62A5600932627 /* ConfigRemoteSigningViewModel.swift */,
+				B23D3E9327C6638B00D92E6D /* ConfigTSAViewModel.swift */,
+				428DD69627C0DDE0008A70A1 /* SelectionProviderViewModel.swift */,
+				B2EAE63827C7CDE8007DD9A2 /* ConfigSigningViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4276551127BFF8E9001D37A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4276551627C08F26001D37A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B23D3E9227C6631100D92E6D /* General */,
+				B2EAE63A27C91AB0007DD9A2 /* Signing */,
+				B2EAE63D27C91CFD007DD9A2 /* Digital Certificate */,
+				B23D3E8A27C6565A00D92E6D /* SIM PKI Config */,
+				B23D3E8927C6563F00D92E6D /* Remote Signing Config */,
+				B23D3E8D27C6623D00D92E6D /* TSA Config */,
+				B23D3E8B27C659D100D92E6D /* VerifyDiCerRemoteSigningModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4276552027C0A11D001D37A1 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				4276552127C0A134001D37A1 /* Binding+Extension.swift */,
+				B23D3E8727C63A0900D92E6D /* TextFieldExtension.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		4277F7EE27BBEF72003DD1DD = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +218,7 @@
 				4277F81027BBEF73003DD1DD /* Digital SignatureTests */,
 				4277F81A27BBEF73003DD1DD /* Digital SignatureUITests */,
 				4277F7F827BBEF72003DD1DD /* Products */,
+				4276551127BFF8E9001D37A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,10 +235,12 @@
 		4277F7F927BBEF72003DD1DD /* Digital Signature */ = {
 			isa = PBXGroup;
 			children = (
+				4276552027C0A11D001D37A1 /* Extentions */,
+				4276550927BFF2D2001D37A1 /* Network */,
+				4276550E27BFF7F8001D37A1 /* ViewModels */,
+				4276550827BFF2BD001D37A1 /* ViewControllers */,
 				4277F7FA27BBEF72003DD1DD /* AppDelegate.swift */,
 				4277F7FC27BBEF72003DD1DD /* SceneDelegate.swift */,
-				4277F7FE27BBEF72003DD1DD /* ViewController.swift */,
-				4277F80027BBEF72003DD1DD /* Main.storyboard */,
 				4277F80327BBEF73003DD1DD /* Assets.xcassets */,
 				4277F80527BBEF73003DD1DD /* LaunchScreen.storyboard */,
 				4277F80827BBEF73003DD1DD /* Info.plist */,
@@ -127,6 +265,59 @@
 			path = "Digital SignatureUITests";
 			sourceTree = "<group>";
 		};
+		B23D3E8927C6563F00D92E6D /* Remote Signing Config */ = {
+			isa = PBXGroup;
+			children = (
+				B280606E27C6277500932627 /* DeviceInfo.swift */,
+				B280607227C62F4500932627 /* RemoteSigningModel.swift */,
+			);
+			path = "Remote Signing Config";
+			sourceTree = "<group>";
+		};
+		B23D3E8A27C6565A00D92E6D /* SIM PKI Config */ = {
+			isa = PBXGroup;
+			children = (
+				428DD6AD27C0FAED008A70A1 /* CertificateModel.swift */,
+				4276551727C08F3F001D37A1 /* SimPKIModel.swift */,
+			);
+			path = "SIM PKI Config";
+			sourceTree = "<group>";
+		};
+		B23D3E8D27C6623D00D92E6D /* TSA Config */ = {
+			isa = PBXGroup;
+			children = (
+				B23D3E8E27C6627400D92E6D /* TSAModel.swift */,
+			);
+			path = "TSA Config";
+			sourceTree = "<group>";
+		};
+		B23D3E9227C6631100D92E6D /* General */ = {
+			isa = PBXGroup;
+			children = (
+				4276550C27BFF552001D37A1 /* NetworkManager.swift */,
+				4276550A27BFF2F3001D37A1 /* CAAPI.swift */,
+				B23D3E9027C662C800D92E6D /* ServiceProviderModel.swift */,
+				428DD6AF27C1F86B008A70A1 /* VerifyDigitalCertificateModel.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		B2EAE63A27C91AB0007DD9A2 /* Signing */ = {
+			isa = PBXGroup;
+			children = (
+				B2EAE63B27C91AD4007DD9A2 /* SigningModel.swift */,
+			);
+			path = Signing;
+			sourceTree = "<group>";
+		};
+		B2EAE63D27C91CFD007DD9A2 /* Digital Certificate */ = {
+			isa = PBXGroup;
+			children = (
+				B2EAE63E27C91D4C007DD9A2 /* DigitalCertModel.swift */,
+			);
+			path = "Digital Certificate";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,12 +328,20 @@
 				4277F7F327BBEF72003DD1DD /* Sources */,
 				4277F7F427BBEF72003DD1DD /* Frameworks */,
 				4277F7F527BBEF72003DD1DD /* Resources */,
+				428DD6A427C0F49A008A70A1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Digital Signature";
+			packageProductDependencies = (
+				4227218527BBF37A008EF018 /* SnapKit */,
+				42A4188F27BD4B7E00637C8C /* Moya */,
+				4276551227BFF8E9001D37A1 /* RxMoya */,
+				4276551427BFFB39001D37A1 /* CombineMoya */,
+				428DD6AB27C0F7A4008A70A1 /* JGProgressHUD */,
+			);
 			productName = "Digital Signature";
 			productReference = 4277F7F727BBEF72003DD1DD /* Digital Signature.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +414,11 @@
 				Base,
 			);
 			mainGroup = 4277F7EE27BBEF72003DD1DD;
+			packageReferences = (
+				4227218427BBF37A008EF018 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				42A4188E27BD4B7E00637C8C /* XCRemoteSwiftPackageReference "Moya" */,
+				428DD6AA27C0F7A4008A70A1 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+			);
 			productRefGroup = 4277F7F827BBEF72003DD1DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +437,6 @@
 			files = (
 				4277F80727BBEF73003DD1DD /* LaunchScreen.storyboard in Resources */,
 				4277F80427BBEF73003DD1DD /* Assets.xcassets in Resources */,
-				4277F80227BBEF72003DD1DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +461,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4277F7FF27BBEF72003DD1DD /* ViewController.swift in Sources */,
+				B23D3E8C27C659D100D92E6D /* VerifyDiCerRemoteSigningModel.swift in Sources */,
+				42A4188D27BD4A1800637C8C /* SettingViewController.swift in Sources */,
+				42A4188B27BD376E00637C8C /* PDFSelectionViewController.swift in Sources */,
+				4276550D27BFF552001D37A1 /* NetworkManager.swift in Sources */,
+				4276551027BFF805001D37A1 /* ConfigSimPKIViewModel.swift in Sources */,
+				4277F7FF27BBEF72003DD1DD /* HomeViewController.swift in Sources */,
+				B2EAE63927C7CDE8007DD9A2 /* ConfigSigningViewModel.swift in Sources */,
+				B23D3E8827C63A0900D92E6D /* TextFieldExtension.swift in Sources */,
+				428DD6AE27C0FAED008A70A1 /* CertificateModel.swift in Sources */,
+				428DD6B027C1F86B008A70A1 /* VerifyDigitalCertificateModel.swift in Sources */,
+				B280607327C62F4500932627 /* RemoteSigningModel.swift in Sources */,
+				B280606F27C6277600932627 /* DeviceInfo.swift in Sources */,
+				4276550B27BFF2F3001D37A1 /* CAAPI.swift in Sources */,
 				4277F7FB27BBEF72003DD1DD /* AppDelegate.swift in Sources */,
+				4293B7BC27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift in Sources */,
+				B23D3E8F27C6627400D92E6D /* TSAModel.swift in Sources */,
+				428DD69727C0DDE0008A70A1 /* SelectionProviderViewModel.swift in Sources */,
+				42E5E6F927BEA1CE00FD52E3 /* ConfigTSAViewController.swift in Sources */,
+				42E5E6F727BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift in Sources */,
+				B23D3E9127C662C800D92E6D /* ServiceProviderModel.swift in Sources */,
+				B23D3E9427C6638B00D92E6D /* ConfigTSAViewModel.swift in Sources */,
+				4276551827C08F3F001D37A1 /* SimPKIModel.swift in Sources */,
+				B2EAE63C27C91AD4007DD9A2 /* SigningModel.swift in Sources */,
 				4277F7FD27BBEF72003DD1DD /* SceneDelegate.swift in Sources */,
+				B2EAE63F27C91D4C007DD9A2 /* DigitalCertModel.swift in Sources */,
+				4276551D27C0944C001D37A1 /* SelectionProviderViewController.swift in Sources */,
+				4276552227C0A134001D37A1 /* Binding+Extension.swift in Sources */,
+				B280607127C62A5600932627 /* ConfigRemoteSigningViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +525,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4277F80027BBEF72003DD1DD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4277F80127BBEF72003DD1DD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4277F80527BBEF73003DD1DD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -439,14 +659,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5NBUV2UMN5;
+				DEVELOPMENT_TEAM = Q2GNRFQMMC;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Digital Signature/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,7 +680,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -467,14 +691,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5NBUV2UMN5;
+				DEVELOPMENT_TEAM = Q2GNRFQMMC;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Digital Signature/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,7 +712,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -624,6 +852,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4227218427BBF37A008EF018 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		428DD6AA27C0F7A4008A70A1 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		42A4188E27BD4B7E00637C8C /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4227218527BBF37A008EF018 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4227218427BBF37A008EF018 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		4276551227BFF8E9001D37A1 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42A4188E27BD4B7E00637C8C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		4276551427BFFB39001D37A1 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42A4188E27BD4B7E00637C8C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		428DD6AB27C0F7A4008A70A1 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 428DD6AA27C0F7A4008A70A1 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		42A4188F27BD4B7E00637C8C /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42A4188E27BD4B7E00637C8C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4277F7EF27BBEF72003DD1DD /* Project object */;
 }
