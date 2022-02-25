@@ -105,9 +105,9 @@
 		4293B7BB27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSimPKIViewController.swift; sourceTree = "<group>"; };
 		42A4188A27BD376E00637C8C /* PDFSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFSelectionViewController.swift; sourceTree = "<group>"; };
 		42A4188C27BD4A1800637C8C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		42C7B04327C91F5F00773D7D /* PreferencesKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PreferencesKit; path = ../../Desktop/PreferencesKit; sourceTree = "<group>"; };
 		42C7B04727C91F7900773D7D /* DigitalSignConfigValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalSignConfigValue.swift; sourceTree = "<group>"; };
 		42C7B04A27C91FCA00773D7D /* EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
+		42C7B04C27C9222E00773D7D /* PreferencesKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PreferencesKit; path = "Digital Signature/Packages/PreferencesKit"; sourceTree = "<group>"; };
 		42E5E6F627BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDigitalSignatureRemoteViewController.swift; sourceTree = "<group>"; };
 		42E5E6F827BEA1CE00FD52E3 /* ConfigTSAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTSAViewController.swift; sourceTree = "<group>"; };
 		B23D3E8727C63A0900D92E6D /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 		42C7B04227C91F5F00773D7D /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				42C7B04327C91F5F00773D7D /* PreferencesKit */,
+				42C7B04C27C9222E00773D7D /* PreferencesKit */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
