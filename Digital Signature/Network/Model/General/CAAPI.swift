@@ -8,6 +8,7 @@
 import Foundation
 import Moya
 enum CAAPI {
+    case getSignDocument(service: ServiceSigning)
     case getListServiceProviderTSA
     case getCertificate(service: ServiceProviderModel, phoneNumber: String)
     case getListServiceProvider_SIM_PKI
@@ -26,7 +27,8 @@ extension CAAPI: TargetType {
     
     var path: String {
         switch self {
-            
+        case .getSignDocument:
+            return "SignDocument"
         case .getListServiceProviderTSA:
             return "GetListServiceProviderTSA"
         case .getCertificate:
@@ -51,7 +53,8 @@ extension CAAPI: TargetType {
                 .getListServiceProvider_REMOTE_SIGNING:
             return .get
             
-        case .getCertificate,
+        case .getSignDocument,
+                .getCertificate,
                 .verifyDigitalCertificate,
             .getCertificateRemoteSigning,
             .verifySignatureDoc:
@@ -65,7 +68,8 @@ extension CAAPI: TargetType {
     
     var task: Task {
         switch self {
-            
+        case .getSignDocument(let service):
+            return .requestJSONEncodable(ServiceSigning(data: service.data))
         case .getListServiceProviderTSA:
             return .requestPlain
         case .getCertificate(let service, let phoneNumber):
@@ -126,3 +130,4 @@ private struct GetCertificateRemoteSigningModel: Codable{
     let Password: String
     let DeviceInfo: DeviceInfo
 }
+

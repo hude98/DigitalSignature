@@ -7,7 +7,7 @@
 import Foundation
 enum EnvironmentValues {
     static let appGroupIdentifier: String = "anh.tt.123.132"
-
+    
     private(set) static var sharedDefaults: UserDefaults = {
         if let suiteDefaults = UserDefaults(suiteName: appGroupIdentifier) {
             return suiteDefaults

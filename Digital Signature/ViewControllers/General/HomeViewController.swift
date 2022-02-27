@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import SnapKit
 import MobileCoreServices
 import QuickLook
@@ -19,6 +20,9 @@ class HomeViewController: UIViewController, UIDocumentPickerDelegate, UIContextM
     private let btnViewSignFile: UIButton = .init()
     private let actionView: UIView = .init()
     private var currentURl: URL? = nil
+    var simKPIViewModel: ConfigSimPKIViewModel!
+    var remoteSigningViewModel: ConfigRemoteSigningViewModel!
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -118,7 +122,6 @@ class HomeViewController: UIViewController, UIDocumentPickerDelegate, UIContextM
         navigationItem.rightBarButtonItems = [moreBarButtonItem]
     }
     
-    
     @objc
     private func btnPickerFileDidTap() {
         let importMenu = UIDocumentPickerViewController(documentTypes: ["public.item"], in: .import)
@@ -136,7 +139,9 @@ class HomeViewController: UIViewController, UIDocumentPickerDelegate, UIContextM
         switch currentURl.pathExtension {
         case "pdf":
             let vc = PDFSelectionViewController(with: currentURl)
-            navigationController?.pushViewController(vc, animated: true)
+//            navigationController?.pushViewController(vc, animated: true)
+            
+            
         case "jpeg",
             "png",
             "docx",
@@ -203,7 +208,12 @@ class HomeViewController: UIViewController, UIDocumentPickerDelegate, UIContextM
                 self?.navigationController?.pushViewController(settingVC, animated: true)
             }
     }
-    
-    
 }
+
+
+//extension HomeViewController: DigitalCertSelectionViewControllerDelegate {
+//    func selectionProviderViewController(_ controller: DigitalCertViewController, didSelected item: DigitalCertModel) {
+//        viewModel.selectedService = item
+//    }
+//}
 

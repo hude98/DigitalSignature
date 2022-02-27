@@ -7,17 +7,21 @@
 
 import Foundation
 
+struct ServiceSigning: Codable {
+    let data: [SigningModel]
+}
+
 struct SigningModel: Codable {
     let signType: String
     let providerId: String
-    let hashAlg: String
+    let hashAlg: String?
     let x509CerificateBase64: String
     let fileInfo: FileInfo
     let signTSA: Bool
-    let tSAConfig: TSAConfig
-    let signSimPKIConfig: SignSimPKIConfig
-    let signRemoteSigningConfig: SignRemoteSigningConfig
-    let pDFSignatureSetting: PDFSignatureSetting
+    let tSAConfig: TSAConfig?
+    let signSimPKIConfig: SignSimPKIConfig?
+    let signRemoteSigningConfig: SignRemoteSigningConfig?
+    let pDFSignatureSetting: PDFSignatureSetting?
 }
 
 struct FileInfo: Codable {
@@ -58,3 +62,4 @@ struct PDFSignatureSetting: Codable {
     let showPosition: Bool
     let position: String
 }
+

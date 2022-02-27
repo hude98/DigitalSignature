@@ -47,13 +47,13 @@ class PDFSelectionViewController: UIViewController, PDFViewDelegate {
         startPoint = nil
         rectShapeLayer.removeFromSuperlayer()
         guard let touch = touches.first else { return }
-
+        
         startPoint = touch.location(in: pdfView)
-
+        
         // you might want to initialize whatever you need to begin showing selected rectangle below, e.g.
-
+        
         rectShapeLayer.path = nil
-
+        
         pdfView.layer.addSublayer(rectShapeLayer)
     }
 

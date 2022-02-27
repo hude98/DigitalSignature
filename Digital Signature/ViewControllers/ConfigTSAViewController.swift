@@ -103,11 +103,11 @@ extension ConfigTSAViewController {
 }
 
 
-struct ContentView_ConfigTSAViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        CertificateInfoView(contents: [
-            "Thành công"
-        ], statusMessage: "Thành công")
-    }
-}
+//struct ContentView_ConfigTSAViewController_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CertificateInfoView(contents: [
+//            "Thành công"
+//        ], statusMessage: "Thành công")
+//    }
+//}
 

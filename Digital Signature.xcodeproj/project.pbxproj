@@ -47,7 +47,12 @@
 		B280607327C62F4500932627 /* RemoteSigningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280607227C62F4500932627 /* RemoteSigningModel.swift */; };
 		B2EAE63927C7CDE8007DD9A2 /* ConfigSigningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE63827C7CDE8007DD9A2 /* ConfigSigningViewModel.swift */; };
 		B2EAE63C27C91AD4007DD9A2 /* SigningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE63B27C91AD4007DD9A2 /* SigningModel.swift */; };
-		B2EAE63F27C91D4C007DD9A2 /* DigitalCertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE63E27C91D4C007DD9A2 /* DigitalCertModel.swift */; };
+		B2EAE63F27C91D4C007DD9A2 /* DigitalCertOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE63E27C91D4C007DD9A2 /* DigitalCertOutputModel.swift */; };
+		B2EAE64227CA7063007DD9A2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE64127CA7063007DD9A2 /* UIViewController.swift */; };
+		B2EAE64C27CA9645007DD9A2 /* DigitalCertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE64B27CA9645007DD9A2 /* DigitalCertModel.swift */; };
+		B2EAE65027CB4E33007DD9A2 /* SigningConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE64F27CB4E33007DD9A2 /* SigningConfig.swift */; };
+		B2EAE65327CB8CD9007DD9A2 /* DigitalCertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE65227CB8CD9007DD9A2 /* DigitalCertViewController.swift */; };
+		B2EAE65727CB8D68007DD9A2 /* DigitalCertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE65627CB8D68007DD9A2 /* DigitalCertViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,7 +125,12 @@
 		B280607227C62F4500932627 /* RemoteSigningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSigningModel.swift; sourceTree = "<group>"; };
 		B2EAE63827C7CDE8007DD9A2 /* ConfigSigningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSigningViewModel.swift; sourceTree = "<group>"; };
 		B2EAE63B27C91AD4007DD9A2 /* SigningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningModel.swift; sourceTree = "<group>"; };
-		B2EAE63E27C91D4C007DD9A2 /* DigitalCertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertModel.swift; sourceTree = "<group>"; };
+		B2EAE63E27C91D4C007DD9A2 /* DigitalCertOutputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertOutputModel.swift; sourceTree = "<group>"; };
+		B2EAE64127CA7063007DD9A2 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B2EAE64B27CA9645007DD9A2 /* DigitalCertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertModel.swift; sourceTree = "<group>"; };
+		B2EAE64F27CB4E33007DD9A2 /* SigningConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningConfig.swift; sourceTree = "<group>"; };
+		B2EAE65227CB8CD9007DD9A2 /* DigitalCertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertViewController.swift; sourceTree = "<group>"; };
+		B2EAE65627CB8D68007DD9A2 /* DigitalCertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,10 +167,11 @@
 		4276550827BFF2BD001D37A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4277F7FE27BBEF72003DD1DD /* HomeViewController.swift */,
+				B2EAE64027CA702D007DD9A2 /* General */,
+				B2EAE65127CB8C82007DD9A2 /* Digital Certificate Selection View */,
+				B2EAE64327CA852F007DD9A2 /* Provider Selection View */,
 				42A4188C27BD4A1800637C8C /* SettingViewController.swift */,
 				4293B7BB27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift */,
-				4276551C27C0944C001D37A1 /* SelectionProviderViewController.swift */,
 				42E5E6F627BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift */,
 				42E5E6F827BEA1CE00FD52E3 /* ConfigTSAViewController.swift */,
 				42A4188A27BD376E00637C8C /* PDFSelectionViewController.swift */,
@@ -179,10 +190,11 @@
 		4276550E27BFF7F8001D37A1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B2EAE65527CB8D53007DD9A2 /* Digital Certificate View Model */,
+				B2EAE65427CB8D44007DD9A2 /* Provider Selection View Model */,
 				4276550F27BFF805001D37A1 /* ConfigSimPKIViewModel.swift */,
 				B280607027C62A5600932627 /* ConfigRemoteSigningViewModel.swift */,
 				B23D3E9327C6638B00D92E6D /* ConfigTSAViewModel.swift */,
-				428DD69627C0DDE0008A70A1 /* SelectionProviderViewModel.swift */,
 				B2EAE63827C7CDE8007DD9A2 /* ConfigSigningViewModel.swift */,
 			);
 			path = ViewModels;
@@ -331,7 +343,9 @@
 				4276550C27BFF552001D37A1 /* NetworkManager.swift */,
 				4276550A27BFF2F3001D37A1 /* CAAPI.swift */,
 				B23D3E9027C662C800D92E6D /* ServiceProviderModel.swift */,
+				B2EAE64B27CA9645007DD9A2 /* DigitalCertModel.swift */,
 				428DD6AF27C1F86B008A70A1 /* VerifyDigitalCertificateModel.swift */,
+				B2EAE64F27CB4E33007DD9A2 /* SigningConfig.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -347,9 +361,50 @@
 		B2EAE63D27C91CFD007DD9A2 /* Digital Certificate */ = {
 			isa = PBXGroup;
 			children = (
-				B2EAE63E27C91D4C007DD9A2 /* DigitalCertModel.swift */,
+				B2EAE63E27C91D4C007DD9A2 /* DigitalCertOutputModel.swift */,
 			);
 			path = "Digital Certificate";
+			sourceTree = "<group>";
+		};
+		B2EAE64027CA702D007DD9A2 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				4277F7FE27BBEF72003DD1DD /* HomeViewController.swift */,
+				B2EAE64127CA7063007DD9A2 /* UIViewController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		B2EAE64327CA852F007DD9A2 /* Provider Selection View */ = {
+			isa = PBXGroup;
+			children = (
+				4276551C27C0944C001D37A1 /* SelectionProviderViewController.swift */,
+			);
+			path = "Provider Selection View";
+			sourceTree = "<group>";
+		};
+		B2EAE65127CB8C82007DD9A2 /* Digital Certificate Selection View */ = {
+			isa = PBXGroup;
+			children = (
+				B2EAE65227CB8CD9007DD9A2 /* DigitalCertViewController.swift */,
+			);
+			path = "Digital Certificate Selection View";
+			sourceTree = "<group>";
+		};
+		B2EAE65427CB8D44007DD9A2 /* Provider Selection View Model */ = {
+			isa = PBXGroup;
+			children = (
+				428DD69627C0DDE0008A70A1 /* SelectionProviderViewModel.swift */,
+			);
+			path = "Provider Selection View Model";
+			sourceTree = "<group>";
+		};
+		B2EAE65527CB8D53007DD9A2 /* Digital Certificate View Model */ = {
+			isa = PBXGroup;
+			children = (
+				B2EAE65627CB8D68007DD9A2 /* DigitalCertViewModel.swift */,
+			);
+			path = "Digital Certificate View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,10 +563,13 @@
 				428DD6AE27C0FAED008A70A1 /* CertificateModel.swift in Sources */,
 				428DD6B027C1F86B008A70A1 /* VerifyDigitalCertificateModel.swift in Sources */,
 				B280607327C62F4500932627 /* RemoteSigningModel.swift in Sources */,
+				B2EAE64C27CA9645007DD9A2 /* DigitalCertModel.swift in Sources */,
 				B280606F27C6277600932627 /* DeviceInfo.swift in Sources */,
 				4276550B27BFF2F3001D37A1 /* CAAPI.swift in Sources */,
 				4277F7FB27BBEF72003DD1DD /* AppDelegate.swift in Sources */,
 				4293B7BC27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift in Sources */,
+				B2EAE65327CB8CD9007DD9A2 /* DigitalCertViewController.swift in Sources */,
+				B2EAE65027CB4E33007DD9A2 /* SigningConfig.swift in Sources */,
 				B23D3E8F27C6627400D92E6D /* TSAModel.swift in Sources */,
 				428DD69727C0DDE0008A70A1 /* SelectionProviderViewModel.swift in Sources */,
 				42E5E6F927BEA1CE00FD52E3 /* ConfigTSAViewController.swift in Sources */,
@@ -522,8 +580,10 @@
 				B2EAE63C27C91AD4007DD9A2 /* SigningModel.swift in Sources */,
 				4277F7FD27BBEF72003DD1DD /* SceneDelegate.swift in Sources */,
 				42C7B04B27C91FCA00773D7D /* EnvironmentValues.swift in Sources */,
-				B2EAE63F27C91D4C007DD9A2 /* DigitalCertModel.swift in Sources */,
+				B2EAE63F27C91D4C007DD9A2 /* DigitalCertOutputModel.swift in Sources */,
+				B2EAE64227CA7063007DD9A2 /* UIViewController.swift in Sources */,
 				4276551D27C0944C001D37A1 /* SelectionProviderViewController.swift in Sources */,
+				B2EAE65727CB8D68007DD9A2 /* DigitalCertViewModel.swift in Sources */,
 				4276552227C0A134001D37A1 /* Binding+Extension.swift in Sources */,
 				B280607127C62A5600932627 /* ConfigRemoteSigningViewModel.swift in Sources */,
 			);

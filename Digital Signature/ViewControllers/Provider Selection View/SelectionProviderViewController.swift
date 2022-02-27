@@ -20,7 +20,7 @@ class SelectionProviderViewController: UIViewController {
     private lazy var contentViewController: UIHostingController<ContentView> = .init(rootView: ContentView(viewModel: viewModel)
     )
     private var cancellabletSet: Set<AnyCancellable> = []
-
+    
     init(viewModel: SelectionProviderViewModel) {
         self.viewModel = viewModel
         
@@ -30,6 +30,7 @@ class SelectionProviderViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,9 +94,9 @@ extension SelectionProviderViewController {
             }
             .frame(alignment: .center)
         }
-        
     }
 }
+
 struct ProviderView: View {
     let model: ServiceProviderModel
     init(model: ServiceProviderModel) {

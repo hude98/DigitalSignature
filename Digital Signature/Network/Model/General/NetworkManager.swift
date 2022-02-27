@@ -17,6 +17,15 @@ struct NetworkManager: Networkable {
     typealias T = CAAPI
     let provider = MoyaProvider<CAAPI>(plugins: [NetworkLoggerPlugin()])
     
+    func signDocument(service: ServiceSigning) -> AnyPublisher<VerifyDigitalCertificateModel, MoyaError> {
+        return provider
+            .requestPublisher(.getSignDocument(service: service))
+            .map(CertificateModel.self)
+            .flatMap({ model -> AnyPublisher<VerifyDigitalCertificateModel, MoyaError>  in
+                return self.verifyDigitalCertificate(cerBased64: model.value)
+            })
+            .eraseToAnyPublisher()
+    }
     
     func getListServiceProvider_SIM_PKI() -> AnyPublisher<[SimPKIModel], MoyaError>{
         return provider
@@ -69,6 +78,5 @@ struct NetworkManager: Networkable {
             .map({$0.data})
             .eraseToAnyPublisher()
     }
-    
     
 }

@@ -86,7 +86,9 @@ extension ConfigDigitalSignatureRemoteViewController {
                     .padding(.bottom, 16)
                 InputView(content: $viewModel.password ?? "", title: "Mật khẩu", keyboardType: .default)
                     .padding(.horizontal, 16)
-                
+                ScrollView {
+                    CertificateInfoView(contents: $viewModel.certificateInfo ?? [], statusMessage: $viewModel.statusMessage ?? "")
+                }
                 Spacer()
                     .frame(alignment: .center)
                 GeometryReader { geometry in
@@ -112,12 +114,12 @@ extension ConfigDigitalSignatureRemoteViewController {
 }
 
 
-struct ContentView_ConfigDigital_Previews: PreviewProvider {
-    static var previews: some View {
-        CertificateInfoView(contents: [
-            "Chủ sở hữu: ThanhTuVtc",
-            "Đơn vị cấp phát: Internal Root CA",
-            "Thời gian hiệu lực: 1/13/2022 đến 1/13/2023"
-        ], statusMessage: "Tình trạng: Chứng chỉ Root CA không hợp lệ")
-    }
-}
+//struct ContentView_ConfigDigital_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CertificateInfoView(contents: [
+//            "Chủ sở hữu: ThanhTuVtc",
+//            "Đơn vị cấp phát: Internal Root CA",
+//            "Thời gian hiệu lực: 1/13/2022 đến 1/13/2023"
+//        ], statusMessage: "Tình trạng: Chứng chỉ Root CA không hợp lệ")
+//    }
+//}
