@@ -82,7 +82,6 @@ extension ConfigSimPKIViewController: SelectionProviderViewControllerDelegate {
 extension ConfigSimPKIViewController {
     struct ContentView: View {
         @ObservedObject var viewModel: ConfigSimPKIViewModel
-        
         var body: some View {
             VStack(spacing: 0) {
                 Text("Vui lòng nhập đầy đủ thông tin cấu hình")
@@ -100,7 +99,7 @@ extension ConfigSimPKIViewController {
                 ScrollView {
                     CertificateInfoView(contents: $viewModel.certificateInfo ?? [], statusMessage: $viewModel.statusMessage ?? "")
                 }
-                .frame(minHeight: 350)
+                .padding(.horizontal)
                 GeometryReader { geometry in
                     HStack(alignment: .center, spacing: 0) {
                         Spacer()

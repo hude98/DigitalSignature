@@ -24,6 +24,7 @@ final class ConfigRemoteSigningViewModel: ObservableObject {
     @Published var statusMessage: String?
     @Published var certificateInfo: [String]?
     @Published var subject: String?
+    @Published var message: String?
     private var deviceInfo = DeviceInfo(
         OS: "ios",
         deviceName: UIDevice.current.name,
@@ -31,7 +32,7 @@ final class ConfigRemoteSigningViewModel: ObservableObject {
         type: "mobile",
         model: UIDevice.current.model,
         version: UIDevice.current.systemVersion,
-        serial: "")
+        serial: UIDevice().identifierForVendor?.uuidString ?? "")
     
     @Published var selectedService: ServiceProviderModel?
     @Published var isLoading = true
@@ -39,13 +40,40 @@ final class ConfigRemoteSigningViewModel: ObservableObject {
     let network: NetworkManager
     func saveConfigRemoteSigning() {
         guard let selectedService = selectedService, let username = username, let password = password else {
+            message = "Điền đầy đủ thông tin"
             return
         }
         isLoading = true
-        
         network
-            .getCertificateRemoteSigning(service: selectedService, username: username, password: password, deviceInfo: deviceInfo) 
+            .getCertificateRemoteSigning(service: selectedService, username: username, password: password, deviceInfo: deviceInfo)
+            .handleEvents(receiveOutput: { [weak self] model in
+                guard let cert = model.value?.certs.first,
+                      let certBase64 = cert.credentialInfo.certificates.first else {
+                          self?.message = "Thông tin tài khoản không hợp lệ"
+                          return
+                      }
+                self?.verifyDigitalCertificate(cerBased64: certBase64)
+            })
             .sink { [weak self ] e in
+                self?.isLoading = false
+            } receiveValue: { [weak self] remoteSigningResponseModel in
+                self?.isLoading = false
+                guard let refreshToken = remoteSigningResponseModel.value?.refreshToken,
+                      let cert = remoteSigningResponseModel.value?.certs.first,
+                      let certBase64 = cert.credentialInfo.certificates.first
+                else {
+                    return
+                }
+                try? digitalSignConfig.setEncodableValue(.init(value: certBase64, name: selectedService.name, id: "\(selectedService.id)", refreshToken: refreshToken, credentialId: cert.credentialID), for: \.remoteSigningConfig)
+            }
+            .store(in: &cancellableSet)
+    }
+    private func verifyDigitalCertificate(cerBased64: String) {
+        self.isLoading = true
+       network
+            .verifyDigitalCertificate(cerBased64: cerBased64)
+            .sink { [weak self] e in
+                print(e)
                 self?.isLoading = false
             } receiveValue: { [weak self] model in
                 self?.isLoading = false
@@ -53,32 +81,9 @@ final class ConfigRemoteSigningViewModel: ObservableObject {
                 self?.certificateInfo = model.value.certificateInfo
                 self?.subject = model.value.subject
                 print(model)
-                guard let cer = model.value.transaction?.certificate else {
-                    return
-                }
-                print("cer: \(cer)")
-                self?.saveDigitalCertInfo(self?.statusMessage, self?.certificateInfo, DigitalConfigName.RemoteSigning, String(selectedService.id), cer)
-//                try? digitalSignConfig.setEncodableValue(.init(value: cer, name: selectedService.name, id: "\(selectedService.id)"), for: \.remoteSigningConfig)
             }
             .store(in: &cancellableSet)
     }
-    
-    private func saveDigitalCertInfo(_ statusMessage: String?, _ certificateInfo: [String]?,_ signType: String?, _ providerId: String?, _ cerBase64: String?){
-        let digitalCertInfo = SigningConfig(statusMessage: statusMessage,
-                                            certificateInfo: certificateInfo,
-                                            signType: signType,
-                                            providerId: providerId,
-                                            cerBase64: cerBase64)
-        do{
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(digitalCertInfo)
-            UserDefaults.standard.set(data, forKey: DigitalConfigName.RemoteSigning)
-        }
-        catch{
-            print("Unable to encode digitalCertInfo (\(error))")
-        }
-    }
-    
     init(network: NetworkManager) {
         self.network = network
         network

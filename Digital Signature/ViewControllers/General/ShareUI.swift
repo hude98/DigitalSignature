@@ -32,7 +32,7 @@ struct SelectionView: View {
 
 
 struct DigitalCertSelectionView: View {
-//    @Binding var model: SigningModel?
+    //    @Binding var model: SigningModel?
     @State private var isUsingTSAConfig = false
     var body: some View {
         VStack {
@@ -59,10 +59,10 @@ struct DigitalCertSelectionView: View {
 
 
 struct InputView: View {
-    @FocusState var isInputActive: Bool
     @Binding var content: String
     var title: String
     let keyboardType: UIKeyboardType
+    var isSecure = false
     
     var body: some View {
         VStack {
@@ -75,21 +75,13 @@ struct InputView: View {
                         Spacer()
                     }
                 }
-                
-                //                HungDzTextField(text: $content, keyType: keyboardType)
-                //                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 20)
-                
-                TextField("", text: $content)
-                    .keyboardType(keyboardType)
-                    .focused($isInputActive)
-                    .toolbar {
-                        ToolbarItemGroup(placement: .keyboard) {
-                            Spacer()
-                            Button("Done") {
-                                isInputActive = false
-                            }
-                        }
-                    }
+                if isSecure {
+                    SecureField("", text: $content)
+                        .keyboardType(keyboardType)
+                } else {
+                    TextField("", text: $content)
+                        .keyboardType(keyboardType)
+                }
             }
         }
         .padding(.horizontal)
@@ -160,5 +152,35 @@ struct CertificateInfoView: View {
                 .bold()
                 .foregroundColor(.red)
         }
+    }
+}
+
+
+extension UIViewController {
+    
+    func showToast(message : String, font: UIFont) {
+        
+        let toastLabel = UILabel()
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center
+        toastLabel.text = "  " +  message +  "  "
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        toastLabel.sizeToFit()
+        
+        self.view.addSubview(toastLabel)
+        toastLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalTo(self.view.snp.bottom).offset(-60)
+            
+        }
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }

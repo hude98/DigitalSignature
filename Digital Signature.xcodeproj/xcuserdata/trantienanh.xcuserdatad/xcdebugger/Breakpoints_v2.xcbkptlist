@@ -3,4 +3,102 @@
    uuid = "B07E5EFE-A850-40F8-A7F6-9F14E118E6A5"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D173FF32-6F1E-4C8A-B708-F53742163861"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Digital Signature/ViewModels/ConfigRemoteSigningViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "verifyDigitalCertificate(cerBased64:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1DDFA2D3-863D-4A2B-9CC9-175C55F2D6E1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Digital Signature/ViewModels/ConfigRemoteSigningViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "verifyDigitalCertificate(cerBased64:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1DDFA2D3-863D-4A2B-9CC9-175C55F2D6E1 - 68b2523eb25cdc35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Digital_Signature.ConfigRemoteSigningViewModel.verifyDigitalCertificate(cerBased64: Swift.String) -&gt; ()"
+                  moduleName = "Digital Signature"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trantienanh/Develop/DigitalSignature/Digital%20Signature/ViewModels/ConfigRemoteSigningViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "360">
+               </Location>
+               <Location
+                  uuid = "1DDFA2D3-863D-4A2B-9CC9-175C55F2D6E1 - b717cf557ef29f25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Digital_Signature.VerifyDigitalCertificateModel) -&gt; () in Digital_Signature.ConfigRemoteSigningViewModel.verifyDigitalCertificate(cerBased64: Swift.String) -&gt; ()"
+                  moduleName = "Digital Signature"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/trantienanh/Develop/DigitalSignature/Digital%20Signature/ViewModels/ConfigRemoteSigningViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1BB3014-2259-44AF-9401-188509F1E4FB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Digital Signature/Network/Model/General/CAAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "task"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9F38550-0ABF-49D7-96DC-92AECFD246B4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Digital Signature/ViewModels/ConfigSimPKIViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "saveConfigSimPKI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

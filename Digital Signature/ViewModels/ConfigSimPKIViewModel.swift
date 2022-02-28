@@ -30,10 +30,25 @@ final class ConfigSimPKIViewModel: ObservableObject {
             return
         }
         isLoading = true
-        
         network
             .getCertificate_SIM_PKI(service: selectedService, phoneNumber: phoneNumber)
+            .handleEvents(receiveOutput: { [weak self] model in
+                self?.verifyDigitalCertificate(cerBased64: model.value)
+            })
             .sink { [weak self ] e in
+                self?.isLoading = false
+            } receiveValue: { [weak self] model in
+                self?.isLoading = false
+                try? digitalSignConfig.setEncodableValue(SimPKIConfigValue(value: model.value, name: selectedService.name, id: "\(selectedService.id)") , for: \.simPkiConfig)
+            }
+            .store(in: &cancellableSet)
+    }
+    private func verifyDigitalCertificate(cerBased64: String) {
+        self.isLoading = true
+       network
+            .verifyDigitalCertificate(cerBased64: cerBased64)
+            .sink { [weak self] e in
+                print(e)
                 self?.isLoading = false
             } receiveValue: { [weak self] model in
                 self?.isLoading = false
@@ -41,37 +56,14 @@ final class ConfigSimPKIViewModel: ObservableObject {
                 self?.certificateInfo = model.value.certificateInfo
                 self?.subject = model.value.subject
                 print(model)
-                guard let cer = model.value.transaction?.certificate else {
-                    return
-                }
-                print("cer: \(cer)")
-                self?.saveDigitalCertInfo(self?.statusMessage, self?.certificateInfo, DigitalConfigName.SimPKI, String(selectedService.id), cer)
-//                try? digitalSignConfig.setEncodableValue(.init(value: cer, name: selectedService.name, id: "\(selectedService.id)"), for: \.simPkiConfig)
             }
             .store(in: &cancellableSet)
-    }
-    
-    private func saveDigitalCertInfo(_ statusMessage: String?, _ certificateInfo: [String]?,_ signType: String?, _ providerId: String?, _ cerBase64: String?){
-        let digitalCertInfo = SigningConfig(statusMessage: statusMessage,
-                                            certificateInfo: certificateInfo,
-                                            signType: signType,
-                                            providerId: providerId,
-                                            cerBase64: cerBase64)
-        do{
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(digitalCertInfo)
-            UserDefaults.standard.set(data, forKey: DigitalConfigName.SimPKI)
-        }
-        catch{
-            print("Unable to encode digitalCertInfo (\(error))")
-        }
     }
     
     init(network: NetworkManager) {
         self.network = network
         network
             .getListServiceProvider_SIM_PKI()
-            .print("anhtt")
             .replaceError(with: [])
             .assign(to: \.models, on: self)
             .store(in: &cancellableSet)

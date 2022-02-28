@@ -33,6 +33,4 @@ struct Transaction: Codable {
     let purpose: String
     let createdBy: Int
     let totalRow: Int
-
- 
 }

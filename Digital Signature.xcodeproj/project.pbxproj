@@ -29,10 +29,10 @@
 		428DD6AE27C0FAED008A70A1 /* CertificateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DD6AD27C0FAED008A70A1 /* CertificateModel.swift */; };
 		428DD6B027C1F86B008A70A1 /* VerifyDigitalCertificateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DD6AF27C1F86B008A70A1 /* VerifyDigitalCertificateModel.swift */; };
 		4293B7BC27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293B7BB27BE858B00BEAAC8 /* ConfigSimPKIViewController.swift */; };
+		429F7C8C27CC759B0072EB4E /* PreferencesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 429F7C8B27CC759B0072EB4E /* PreferencesKit */; };
 		42A4188B27BD376E00637C8C /* PDFSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4188A27BD376E00637C8C /* PDFSelectionViewController.swift */; };
 		42A4188D27BD4A1800637C8C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A4188C27BD4A1800637C8C /* SettingViewController.swift */; };
 		42A4189027BD4B7E00637C8C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 42A4188F27BD4B7E00637C8C /* Moya */; };
-		42C7B04527C91F6A00773D7D /* PreferencesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42C7B04427C91F6A00773D7D /* PreferencesKit */; };
 		42C7B04827C91F7900773D7D /* DigitalSignConfigValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7B04727C91F7900773D7D /* DigitalSignConfigValue.swift */; };
 		42C7B04B27C91FCA00773D7D /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7B04A27C91FCA00773D7D /* EnvironmentValues.swift */; };
 		42E5E6F727BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5E6F627BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift */; };
@@ -48,7 +48,7 @@
 		B2EAE63927C7CDE8007DD9A2 /* ConfigSigningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE63827C7CDE8007DD9A2 /* ConfigSigningViewModel.swift */; };
 		B2EAE63C27C91AD4007DD9A2 /* SigningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE63B27C91AD4007DD9A2 /* SigningModel.swift */; };
 		B2EAE63F27C91D4C007DD9A2 /* DigitalCertOutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE63E27C91D4C007DD9A2 /* DigitalCertOutputModel.swift */; };
-		B2EAE64227CA7063007DD9A2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE64127CA7063007DD9A2 /* UIViewController.swift */; };
+		B2EAE64227CA7063007DD9A2 /* ShareUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE64127CA7063007DD9A2 /* ShareUI.swift */; };
 		B2EAE64C27CA9645007DD9A2 /* DigitalCertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE64B27CA9645007DD9A2 /* DigitalCertModel.swift */; };
 		B2EAE65027CB4E33007DD9A2 /* SigningConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE64F27CB4E33007DD9A2 /* SigningConfig.swift */; };
 		B2EAE65327CB8CD9007DD9A2 /* DigitalCertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EAE65227CB8CD9007DD9A2 /* DigitalCertViewController.swift */; };
@@ -112,7 +112,7 @@
 		42A4188C27BD4A1800637C8C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		42C7B04727C91F7900773D7D /* DigitalSignConfigValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalSignConfigValue.swift; sourceTree = "<group>"; };
 		42C7B04A27C91FCA00773D7D /* EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
-		42C7B04C27C9222E00773D7D /* PreferencesKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PreferencesKit; path = "Digital Signature/Packages/PreferencesKit"; sourceTree = "<group>"; };
+		42D1EBD827CCAAEA00BCAE34 /* PreferencesKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PreferencesKit; path = "Digital Signature/Packages/PreferencesKit"; sourceTree = "<group>"; };
 		42E5E6F627BE9FCB00FD52E3 /* ConfigDigitalSignatureRemoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDigitalSignatureRemoteViewController.swift; sourceTree = "<group>"; };
 		42E5E6F827BEA1CE00FD52E3 /* ConfigTSAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTSAViewController.swift; sourceTree = "<group>"; };
 		B23D3E8727C63A0900D92E6D /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		B2EAE63827C7CDE8007DD9A2 /* ConfigSigningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSigningViewModel.swift; sourceTree = "<group>"; };
 		B2EAE63B27C91AD4007DD9A2 /* SigningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningModel.swift; sourceTree = "<group>"; };
 		B2EAE63E27C91D4C007DD9A2 /* DigitalCertOutputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertOutputModel.swift; sourceTree = "<group>"; };
-		B2EAE64127CA7063007DD9A2 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B2EAE64127CA7063007DD9A2 /* ShareUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareUI.swift; sourceTree = "<group>"; };
 		B2EAE64B27CA9645007DD9A2 /* DigitalCertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertModel.swift; sourceTree = "<group>"; };
 		B2EAE64F27CB4E33007DD9A2 /* SigningConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningConfig.swift; sourceTree = "<group>"; };
 		B2EAE65227CB8CD9007DD9A2 /* DigitalCertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCertViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				4227218627BBF37A008EF018 /* SnapKit in Frameworks */,
 				4276551527BFFB39001D37A1 /* CombineMoya in Frameworks */,
 				4276551327BFF8E9001D37A1 /* RxMoya in Frameworks */,
-				42C7B04527C91F6A00773D7D /* PreferencesKit in Frameworks */,
+				429F7C8C27CC759B0072EB4E /* PreferencesKit in Frameworks */,
 				428DD6AC27C0F7A4008A70A1 /* JGProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,7 +290,7 @@
 		42C7B04227C91F5F00773D7D /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				42C7B04C27C9222E00773D7D /* PreferencesKit */,
+				42D1EBD827CCAAEA00BCAE34 /* PreferencesKit */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -370,7 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				4277F7FE27BBEF72003DD1DD /* HomeViewController.swift */,
-				B2EAE64127CA7063007DD9A2 /* UIViewController.swift */,
+				B2EAE64127CA7063007DD9A2 /* ShareUI.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -430,7 +430,7 @@
 				4276551227BFF8E9001D37A1 /* RxMoya */,
 				4276551427BFFB39001D37A1 /* CombineMoya */,
 				428DD6AB27C0F7A4008A70A1 /* JGProgressHUD */,
-				42C7B04427C91F6A00773D7D /* PreferencesKit */,
+				429F7C8B27CC759B0072EB4E /* PreferencesKit */,
 			);
 			productName = "Digital Signature";
 			productReference = 4277F7F727BBEF72003DD1DD /* Digital Signature.app */;
@@ -581,7 +581,7 @@
 				4277F7FD27BBEF72003DD1DD /* SceneDelegate.swift in Sources */,
 				42C7B04B27C91FCA00773D7D /* EnvironmentValues.swift in Sources */,
 				B2EAE63F27C91D4C007DD9A2 /* DigitalCertOutputModel.swift in Sources */,
-				B2EAE64227CA7063007DD9A2 /* UIViewController.swift in Sources */,
+				B2EAE64227CA7063007DD9A2 /* ShareUI.swift in Sources */,
 				4276551D27C0944C001D37A1 /* SelectionProviderViewController.swift in Sources */,
 				B2EAE65727CB8D68007DD9A2 /* DigitalCertViewModel.swift in Sources */,
 				4276552227C0A134001D37A1 /* Binding+Extension.swift in Sources */,
@@ -756,7 +756,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q2GNRFQMMC;
+				DEVELOPMENT_TEAM = 5NBUV2UMN5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -767,7 +767,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -788,7 +788,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q2GNRFQMMC;
+				DEVELOPMENT_TEAM = 5NBUV2UMN5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -799,7 +799,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -998,14 +998,14 @@
 			package = 428DD6AA27C0F7A4008A70A1 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
 		};
+		429F7C8B27CC759B0072EB4E /* PreferencesKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PreferencesKit;
+		};
 		42A4188F27BD4B7E00637C8C /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42A4188E27BD4B7E00637C8C /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
-		};
-		42C7B04427C91F6A00773D7D /* PreferencesKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PreferencesKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

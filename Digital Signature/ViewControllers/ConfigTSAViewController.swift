@@ -49,7 +49,23 @@ class ConfigTSAViewController: UIViewController {
         view.addSubview(contentViewController.view)
         contentViewController.view.backgroundColor = .white
         contentViewController.didMove(toParent: self)
-        // Do any additional setup after loading the view.
+        let hud = JGProgressHUD()
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        hud.dismiss(afterDelay: 3.0)
+        viewModel
+            .$isLoading
+            .sink { [weak self] isLoading in
+                guard let strongSelf = self else {
+                    return
+                }
+                if isLoading {
+                    hud.show(in: strongSelf.view)
+                } else {
+                    hud.dismiss()
+                }
+            }
+            .store(in: &cancellabletSet)
     }
     
     override func viewWillLayoutSubviews() {

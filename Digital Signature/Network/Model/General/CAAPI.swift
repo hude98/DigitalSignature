@@ -73,17 +73,20 @@ extension CAAPI: TargetType {
         case .getListServiceProviderTSA:
             return .requestPlain
         case .getCertificate(let service, let phoneNumber):
+            let data = try? JSONEncoder.init().encode(GetCertificateRequestModel(ProviderId: "\(service.id)", Mobile: phoneNumber))
+            let string = String(data: data ?? .init(), encoding: .utf8)
+
             return .requestJSONEncodable(GetCertificateRequestModel(ProviderId: "\(service.id)", Mobile: phoneNumber))
         case .getListServiceProvider_SIM_PKI:
             return .requestPlain
             
         case .getCertificateRemoteSigning(let service, let userName, let password, let deviceInfo):
-//            return .requestParameters(parameters: ["ProviderId": service.id,
-//                                                   "Username": userName,
-//                                                   "Password": password,
-//                                                   "DeviceInfo": deviceInfo
-//                                                  ], encoding: URLEncoding.httpBody)
-            
+            let data = try? JSONEncoder.init().encode(GetCertificateRemoteSigningModel(
+                ProviderId: "\(service.id)",
+                Username: userName,
+                Password: password,
+                DeviceInfo: deviceInfo))
+            let string = String(data: data ?? .init(), encoding: .utf8)
             return .requestJSONEncodable(GetCertificateRemoteSigningModel(
                 ProviderId: "\(service.id)",
                 Username: userName,
@@ -100,7 +103,7 @@ extension CAAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        var header = ["Content-type": "application/json",
+        let header = ["Content-type": "application/json",
                       "Connection": "keep-alive",
                       "Accept":  "*/*",
                       "Accept-Encoding": "gzip, deflate, br"

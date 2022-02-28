@@ -35,13 +35,10 @@ struct NetworkManager: Networkable {
             .eraseToAnyPublisher()
     }
     
-    func getCertificate_SIM_PKI(service: ServiceProviderModel, phoneNumber: String) -> AnyPublisher<VerifyDigitalCertificateModel, MoyaError>  {
+    func getCertificate_SIM_PKI(service: ServiceProviderModel, phoneNumber: String) -> AnyPublisher<CertificateModel, MoyaError>  {
         return provider
             .requestPublisher(.getCertificate(service: service, phoneNumber: phoneNumber))
             .map(CertificateModel.self)
-            .flatMap({ model -> AnyPublisher<VerifyDigitalCertificateModel, MoyaError>  in
-                return self.verifyDigitalCertificate(cerBased64: model.value)
-            })
             .eraseToAnyPublisher()
     }
     
@@ -61,13 +58,11 @@ struct NetworkManager: Networkable {
             .eraseToAnyPublisher()
     }
     
-    func getCertificateRemoteSigning(service: ServiceProviderModel, username: String, password: String, deviceInfo: DeviceInfo) -> AnyPublisher<VerifyDigitalCertificateModel, MoyaError> {
+    func getCertificateRemoteSigning(service: ServiceProviderModel, username: String, password: String, deviceInfo: DeviceInfo) -> AnyPublisher<RemoteSigningResponseModel, MoyaError> {
         return provider
             .requestPublisher(.getCertificateRemoteSigning(service: service, username: username, password: password, deviceInfo: deviceInfo))
-            .map(CertificateModel.self)
-            .flatMap({ model -> AnyPublisher<VerifyDigitalCertificateModel, MoyaError>  in
-                return self.verifyDigitalCertificate(cerBased64: model.value)
-            })
+            .map(RemoteSigningResponseModel.self)
+            .print("anhtt getCertificateRemoteSigning")
             .eraseToAnyPublisher()
     }
     

@@ -19,15 +19,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             let navigationController =  UINavigationController(rootViewController: HomeViewController())
+
+            let navigationBar = UINavigationBar.appearance()
+            let barButtonItem = UIBarButtonItem.appearance()
             let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             UINavigationBar.appearance().tintColor = .white
-            UINavigationBar.appearance().backgroundColor = .blue.withAlphaComponent(0.8)
             UINavigationBar.appearance().titleTextAttributes = textAttributes
+            
+            navigationBar.backgroundColor =  UIColor(named: "Accent Primary")!
+            barButtonItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 17, weight: .medium),
+                                                  .foregroundColor: UIColor(named: "Accent Primary")!], for: .normal)
             window.rootViewController = navigationController
             self.window = window
             window.makeKeyAndVisible()
             AppDelegate.shared.window = window
         }
+        let tapGesture = AnyGestureRecognizer(target: window, action:#selector(UIView.endEditing))
+        tapGesture.requiresExclusiveTouchType = false
+        tapGesture.cancelsTouchesInView = false
+        tapGesture.delegate = self //I don't use window as delegate to minimize possible side effects
+        window?.addGestureRecognizer(tapGesture)
+
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -61,3 +73,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
 }
 
+extension SceneDelegate: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
+class AnyGestureRecognizer: UIGestureRecognizer {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        if let touchedView = touches.first?.view, touchedView is UIControl {
+            state = .cancelled
+
+        } else if let touchedView = touches.first?.view as? UITextView, touchedView.isEditable {
+            state = .cancelled
+
+        } else {
+            state = .began
+        }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+       state = .ended
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent) {
+        state = .cancelled
+    }
+}

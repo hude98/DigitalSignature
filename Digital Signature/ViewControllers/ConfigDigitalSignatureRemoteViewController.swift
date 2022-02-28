@@ -48,7 +48,33 @@ class ConfigDigitalSignatureRemoteViewController: UIViewController {
         view.addSubview(contentViewController.view)
         contentViewController.view.backgroundColor = .white
         contentViewController.didMove(toParent: self)
-        // Do any additional setup after loading the view.
+        let hud = JGProgressHUD()
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        hud.dismiss(afterDelay: 3.0)
+        viewModel
+            .$isLoading
+            .sink { [weak self] isLoading in
+                guard let strongSelf = self else {
+                    return
+                }
+                if isLoading {
+                    hud.show(in: strongSelf.view)
+                } else {
+                    hud.dismiss()
+                }
+            }
+            .store(in: &cancellabletSet)
+        viewModel
+            .$message
+            .sink { [weak self] message in
+                guard let message = message else {
+                    return
+                }
+                self?.showToast(message: message, font: .boldSystemFont(ofSize: 16))
+            }
+            .store(in: &cancellabletSet)
+
     }
     
     override func viewWillLayoutSubviews() {
@@ -84,7 +110,7 @@ extension ConfigDigitalSignatureRemoteViewController {
                 InputView(content: $viewModel.username ?? "", title: "Tài khoản", keyboardType: .default)
                     .padding(.horizontal, 16)
                     .padding(.bottom, 16)
-                InputView(content: $viewModel.password ?? "", title: "Mật khẩu", keyboardType: .default)
+                InputView(content: $viewModel.password ?? "", title: "Mật khẩu", keyboardType: .default, isSecure: true)
                     .padding(.horizontal, 16)
                 ScrollView {
                     CertificateInfoView(contents: $viewModel.certificateInfo ?? [], statusMessage: $viewModel.statusMessage ?? "")
@@ -95,12 +121,10 @@ extension ConfigDigitalSignatureRemoteViewController {
                     HStack(alignment: .center, spacing: 0) {
                         Spacer()
                         ButtonView(icon: .init(systemName: "Back"), title: "thoát", widthBtn: 125) {
-                            print("thoat")
                         }
                         Spacer()
                         ButtonView(icon: .init(systemName: "Back"), title: "Lưu", widthBtn: 125) {
                             viewModel.saveConfigRemoteSigning()
-                            print("Lưu")
                         }
                         Spacer()
                     }

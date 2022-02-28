@@ -133,23 +133,32 @@ class HomeViewController: UIViewController, UIDocumentPickerDelegate, UIContextM
     @objc
     private func btnSignFIleDidTap() {
         guard let currentURl = currentURl else {
+            showToast(message: "Chọn file trước", font: .systemFont(ofSize: 16))
             return
         }
-        
-        switch currentURl.pathExtension {
-        case "pdf":
-            let vc = PDFSelectionViewController(with: currentURl)
-//            navigationController?.pushViewController(vc, animated: true)
-            
-            
-        case "jpeg",
-            "png",
-            "docx",
-            "doc": break
-        
-        default:
-            print("default")
+        let simPKICer =  digitalSignConfig.decodableValue(for: \.simPkiConfig)
+        let remoteSign = digitalSignConfig.decodableValue(for: \.remoteSigningConfig)
+        let cers:[DigitalCertModel] = [simPKICer, remoteSign].compactMap({$0 as? DigitalCertModel})
+        if cers.isEmpty {
+            showToast(message: "Cấu hình chứng chỉ trong cài đặt trước", font: .systemFont(ofSize: 16))
+            return
         }
+        let vc = DigitalCertSelectionViewController(viewModel: .init(items: cers))
+        vc.delegate = self
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+//
+//        switch currentURl.pathExtension {
+//        case "pdf":
+//
+//        case "jpeg",
+//            "png",
+//            "docx",
+//            "doc": break
+//
+//        default:
+//            print("default")
+//        }
     }
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
@@ -209,11 +218,8 @@ class HomeViewController: UIViewController, UIDocumentPickerDelegate, UIContextM
             }
     }
 }
-
-
-//extension HomeViewController: DigitalCertSelectionViewControllerDelegate {
-//    func selectionProviderViewController(_ controller: DigitalCertViewController, didSelected item: DigitalCertModel) {
-//        viewModel.selectedService = item
-//    }
-//}
-
+extension HomeViewController: DigitalCertViewControllerDelegate {
+    func selectDigitalCertViewController(_ controller: DigitalCertSelectionViewController, didSelected item: DigitalCertModel) {
+        print(item)
+    }
+}

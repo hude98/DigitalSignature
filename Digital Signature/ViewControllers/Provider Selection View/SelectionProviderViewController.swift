@@ -121,6 +121,7 @@ struct ProviderView: View {
             )
         }
         .padding(.bottom, 5)
+        .padding(.top, 2)
     }
 }
 

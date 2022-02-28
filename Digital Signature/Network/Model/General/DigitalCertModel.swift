@@ -7,7 +7,16 @@
 
 import Foundation
 
-protocol DigitalCertModel: Codable {
-    var id: Int { get }
+protocol DigitalCertModel {
+    var id: String { get }
     var name: String { get }
+    var value: String { get }
+    static var type: DigitalCertType { get }
+}
+
+
+enum DigitalCertType: String, Codable {
+    case simPKI
+    case remoteSigning
+    case TSA
 }

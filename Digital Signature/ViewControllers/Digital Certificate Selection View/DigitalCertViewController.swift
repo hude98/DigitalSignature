@@ -82,34 +82,21 @@ extension DigitalCertSelectionViewController {
                     .bold()
                     .padding(.vertical)
                     .frame(minWidth: 300)
-                Spacer()
-                Text("Chọn")
-                    .onTapGesture {
-                        //showpopup
-                    }
+                ForEach(viewModel.items, id: \.id) { item in
+                    Text(item.name)
+                        .frame(width: .infinity)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                        .onTapGesture {
+                            viewModel.selectedItem = item
+                        }
+                    
+                }
             }
             .frame(alignment: .center)
         }
     }
 }
 
-
-//struct DigitalCertView: View {
-//    var listName: [String]
-//    var body: some View {
-//        VStack(spacing: 0) {
-//            Text("Chọn chứng thư số")
-//                .bold()
-//                .padding(.vertical)
-//                .frame(minWidth: 300)
-//            Spacer()
-//            ForEach(0 ..< listName.count) { name in
-//                Text(name)
-//            }
-//            .padding(.horizontal, 5)
-//        }
-//        .frame(alignment: .center)
-//    }
-//}
 
 
