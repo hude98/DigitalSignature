@@ -90,7 +90,11 @@ extension ConfigTSAViewController {
                 Button { 
                     viewModel.selectionProviderAction.send()
                 } label: {
-                    SelectionView(model: $viewModel.selectedService, title: "Chọn nhà cung cấp")
+                    SelectionView(selected: Binding(get: {
+                        viewModel.selectedService?.name
+                    }, set: { _ in
+                        
+                    }), title: "Chọn nhà cung cấp")
                 }
                 .padding(.all, 16)
                 

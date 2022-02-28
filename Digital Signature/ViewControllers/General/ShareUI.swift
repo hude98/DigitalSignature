@@ -10,44 +10,17 @@ import UIKit
 import SwiftUI
 
 struct SelectionView: View {
-    @Binding var model: ServiceProviderModel?
+    @Binding var selected: String?
     var title: String
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Text(model?.name ?? title)
+                Text(selected ?? title)
                     .bold()
-                    .foregroundColor(model == nil ? nil : .red)
+                    .foregroundColor(selected == nil ? nil : .red)
                 Spacer()
             }
-        }
-        .padding(.horizontal)
-        .padding(.vertical, 5)
-        .background(Color.gray)
-        .opacity(0.5)
-        .cornerRadius(5)
-    }
-}
-
-
-struct DigitalCertSelectionView: View {
-    //    @Binding var model: SigningModel?
-    @State private var isUsingTSAConfig = false
-    var body: some View {
-        VStack {
-            Spacer()
-            Text("Chọn")
-                .foregroundColor(.gray)
-            Spacer()
-            Text("TSA")
-                .foregroundColor(.gray)
-            Spacer()
-            Toggle("Show welcome message", isOn: $isUsingTSAConfig)
-            if isUsingTSAConfig {
-                
-            }
-            
         }
         .padding(.horizontal)
         .padding(.vertical, 5)

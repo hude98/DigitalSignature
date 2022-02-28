@@ -143,8 +143,7 @@ class HomeViewController: UIViewController, UIDocumentPickerDelegate, UIContextM
             showToast(message: "Cấu hình chứng chỉ trong cài đặt trước", font: .systemFont(ofSize: 16))
             return
         }
-        let vc = DigitalCertSelectionViewController(viewModel: .init(items: cers))
-        vc.delegate = self
+        let vc = ConfigSignViewController(viewModel: .init(items: cers))
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
 //
@@ -218,8 +217,4 @@ class HomeViewController: UIViewController, UIDocumentPickerDelegate, UIContextM
             }
     }
 }
-extension HomeViewController: DigitalCertViewControllerDelegate {
-    func selectDigitalCertViewController(_ controller: DigitalCertSelectionViewController, didSelected item: DigitalCertModel) {
-        print(item)
-    }
-}
+

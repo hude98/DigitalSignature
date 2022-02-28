@@ -1,8 +1,8 @@
 //
-//  DigitalCertViewController.swift
+//  ConfigSignViewController.swift
 //  Digital Signature
 //
-//  Created by Ta Huy Hung on 27/02/2022.
+//  Created by Tran Tien Anh on 28/02/2022.
 //
 
 import Foundation
@@ -10,18 +10,14 @@ import UIKit
 import SwiftUI
 import Combine
 
-protocol DigitalCertViewControllerDelegate: AnyObject {
-    func selectDigitalCertViewController(_ controller: DigitalCertSelectionViewController, didSelected item: DigitalCertModel)
-}
 
-class DigitalCertSelectionViewController: UIViewController {
-    let viewModel: DigitalCertViewModel
-    weak var delegate: DigitalCertViewControllerDelegate?
+class ConfigSignViewController: UIViewController {
+    let viewModel: ConfigSignViewModel
     private lazy var contentViewController: UIHostingController<ContentView> = .init(rootView: ContentView(viewModel: viewModel)
     )
     private var cancellabletSet: Set<AnyCancellable> = []
     
-    init(viewModel: DigitalCertViewModel) {
+    init(viewModel: ConfigSignViewModel) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
@@ -48,17 +44,16 @@ class DigitalCertSelectionViewController: UIViewController {
             make.center.equalToSuperview()
             make.width.lessThanOrEqualToSuperview().offset(40)
         }
-        
         viewModel
-            .$selectedItem
-            .compactMap({$0})
-            .sink { [weak self] model in
+            .selectionCerAction
+            .sink( receiveValue: { [weak self] in
                 guard let strongSelf = self else {
                     return
                 }
-                strongSelf.delegate?.selectDigitalCertViewController(strongSelf, didSelected: model)
-                strongSelf.dismiss(animated: true, completion: nil)
-            }
+                let vc = DigitalCertSelectionViewController(viewModel: .init(items: strongSelf.viewModel.items))
+                vc.delegate = self
+                strongSelf.present(vc, animated: true)
+            })
             .store(in: &cancellabletSet)
     }
     
@@ -72,9 +67,9 @@ class DigitalCertSelectionViewController: UIViewController {
 }
 
 
-extension DigitalCertSelectionViewController {
+extension ConfigSignViewController {
     struct ContentView: View {
-        @ObservedObject var viewModel: DigitalCertViewModel
+        @ObservedObject var viewModel: ConfigSignViewModel
         
         var body: some View {
             VStack(spacing: 0) {
@@ -82,14 +77,25 @@ extension DigitalCertSelectionViewController {
                     .bold()
                     .padding(.vertical)
                     .frame(minWidth: 300)
-                ForEach(viewModel.items, id: \.id) { item in
-                    Text(item.name)
-                        .multilineTextAlignment(.leading)
-                        .padding()
-                        .onTapGesture {
-                            viewModel.selectedItem = item
-                        }
-                    
+                
+                Button {
+                    viewModel.selectionCerAction.send()
+                } label: {
+                    SelectionView(selected: Binding(get: {
+                        viewModel.selectedCer?.name
+                    }, set: { _ in
+                        
+                    }), title: "Chọn nhà cung cấp")
+                }
+                .padding(.horizontal)
+                
+                Toggle(isOn: $viewModel.isConfigTSA, label: {
+                    Text("TSA")
+                })
+                .padding(.all, 16)
+                
+                ButtonView(icon: .init(systemName: "Back"), title: "Ky", widthBtn: 125) {
+                    print("Ky")
                 }
             }
             .frame(alignment: .center)
@@ -99,3 +105,9 @@ extension DigitalCertSelectionViewController {
 
 
 
+
+extension ConfigSignViewController: DigitalCertViewControllerDelegate {
+    func selectDigitalCertViewController(_ controller: DigitalCertSelectionViewController, didSelected item: DigitalCertModel) {
+        viewModel.selectedCer = item
+    }
+}
